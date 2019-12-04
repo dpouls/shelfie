@@ -13,7 +13,7 @@ class App extends React.Component {
     super()
     this.state = {
       inventory: [],
-      editProduct: 9
+      editProduct: {}
     }
     this.getInventory = this.getInventory.bind(this)
     this.update = this.update.bind(this)
@@ -23,7 +23,7 @@ class App extends React.Component {
   selectProduct(i){
     console.log(i)
     this.setState({
-      editProduct:  i
+      editProduct:  this.state.inventory[i]
       //  id: i.id, product_name: i.product_name, price: i.price, image: i.image
     })
     console.log(this.state.editProduct)

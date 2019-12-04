@@ -44,6 +44,7 @@ class Form extends React.Component {
                 })
             }
         )
+        // this.props.refreshFn()
         this.componentDidMount()
         this.cancel()
     }
