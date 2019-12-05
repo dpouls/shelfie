@@ -3,16 +3,10 @@ import Product from '../Product/Product'
 import Axios from 'axios'
 
 class Dashboard extends React.Component {
-    componentDidMount(){
-        this.props.getInventoryFn()
-    }
-    delete = (id) => {
+    delete = (id) =>  {
         Axios.delete(`/api/product/${id}`).then(res => {
-            this.setState({
-                inventory: res.data
-            })
+            this.props.getInventoryFn()    
         })
-        this.componentDidMount()      
     }
 
     render(){

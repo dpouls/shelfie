@@ -20,13 +20,13 @@ class App extends React.Component {
     this.selectProduct = this.selectProduct.bind(this)
   }
 
+
   selectProduct(i){
-    console.log(i)
+    // console.log(i)
     this.setState({
-      editProduct:  this.state.inventory[i]
-      //  id: i.id, product_name: i.product_name, price: i.price, image: i.image
+      editProduct:  i
     })
-    console.log(this.state.editProduct)
+    // console.log(this.state.editProduct)
   }
 
   update(id, body){
@@ -35,13 +35,12 @@ class App extends React.Component {
         inventory: res.data
       })
     })
-
   }
-
 
   componentDidMount(){
     this.getInventory()
   }
+
   getInventory = () => {
     Axios.get('/api/inventory').then(res => {
       this.setState({
@@ -60,6 +59,7 @@ class App extends React.Component {
         inventory={this.state.inventory}
         selectFn={this.selectProduct} />
         <Form 
+        updateFn={this.update}
         editProduct={this.state.editProduct} 
         refreshFn={this.componentDidMount} 
         inventory={this.state.inventory} 
